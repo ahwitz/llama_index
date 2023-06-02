@@ -27,7 +27,9 @@ class FeedbackQueryTransformation(BaseQueryTransform):
 
     Args:
         eval(Evaluation): An evaluation object.
+        llm_predictor(BaseLLMPredictor): An LLM predictor.
         resynthesize_query(bool): Whether to resynthesize the query.
+        resynthesis_prompt(Prompt): A prompt for resynthesizing the query.
 
     """
 
