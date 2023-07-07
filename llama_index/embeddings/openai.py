@@ -89,7 +89,7 @@ _TEXT_MODE_MODEL_DICT = {
 }
 
 
-@retry(wait=wait_random_exponential(min=1, max=20), stop=stop_after_attempt(6))
+@retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
 def get_embedding(
     text: str, engine: Optional[str] = None, **kwargs: Any
 ) -> List[float]:
@@ -108,7 +108,7 @@ def get_embedding(
     ]
 
 
-@retry(wait=wait_random_exponential(min=1, max=20), stop=stop_after_attempt(6))
+@retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
 async def aget_embedding(
     text: str, engine: Optional[str] = None, **kwargs: Any
 ) -> List[float]:
@@ -129,7 +129,7 @@ async def aget_embedding(
     ][0]["embedding"]
 
 
-@retry(wait=wait_random_exponential(min=1, max=20), stop=stop_after_attempt(6))
+@retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
 def get_embeddings(
     list_of_text: List[str], engine: Optional[str] = None, **kwargs: Any
 ) -> List[List[float]]:
@@ -151,7 +151,7 @@ def get_embeddings(
     return [d["embedding"] for d in data]
 
 
-@retry(wait=wait_random_exponential(min=1, max=20), stop=stop_after_attempt(6))
+@retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
 async def aget_embeddings(
     list_of_text: List[str], engine: Optional[str] = None, **kwargs: Any
 ) -> List[List[float]]:
